@@ -1,0 +1,7 @@
+{
+  "name": "Copy of St. Joseph's Mahoba - Premium School Portal",
+  "description": "A high-end, professionally designed web portal for St. Joseph's English Medium Senior Secondary School, Mahoba. Featuring a modern UI/UX, responsive layouts, and interactive components.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
