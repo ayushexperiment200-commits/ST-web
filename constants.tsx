@@ -10,54 +10,64 @@ import {
   Mail,
   GraduationCap,
   ShieldCheck,
-  Globe
+  Globe,
+  Music,
+  Heart,
+  Lightbulb
 } from 'lucide-react';
 
 export const COLORS = {
-  primary: '#003366', // Deep Royal Blue
-  secondary: '#FFD700', // Academic Gold
-  accent: '#E63946', // Modern Red
-  background: '#F8FAFC',
+  primary: '#002147', // Oxford Blue (More prestigious)
+  secondary: '#D4AF37', // Metallic Gold
+  accent: '#C41E3A', // Cardinal Red
+  background: '#FFFFFF',
+  surface: '#F8FAFC',
 };
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About Us', href: '/about' },
   { label: 'Academics', href: '/academics' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'Facilities', href: '/facilities' },
-  { label: 'Gallery', href: '/gallery' },
+  { label: 'Campus Life', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export const SCHOOL_INFO = {
   name: "St. Joseph's English Medium Senior Secondary School",
-  location: "Mahoba, Uttar Pradesh - 210427",
+  shortName: "St. Joseph's Mahoba",
+  location: "Bilsibai Road, Mahoba, Uttar Pradesh - 210427",
   motto: "Love, Service, Discipline",
-  affiliation: "Affiliated to CBSE, New Delhi",
-  phone: "+91-5281-297044",
+  affiliation: "Affiliated to CBSE, New Delhi (Affiliation No: 2131238)",
+  phone: "+91-5281-244044",
   email: "stjosephmahoba@gmail.com",
+  established: "1984",
 };
 
 export const FEATURES = [
   {
-    title: "Holistic Education",
-    description: "Focusing on spiritual, intellectual, and social growth through balanced curriculum.",
-    icon: <GraduationCap className="w-8 h-8 text-blue-800" />,
+    title: "Academic Rigor",
+    description: "Our CBSE-aligned curriculum is designed to challenge students and foster a lifelong love for learning and discovery.",
+    icon: <GraduationCap className="w-8 h-8 text-white" />,
+    color: "bg-blue-900"
   },
   {
-    title: "Elite Faculty",
-    description: "Experienced educators dedicated to nurturing student curiosity and character.",
-    icon: <Users className="w-8 h-8 text-blue-800" />,
+    title: "Spiritual Growth",
+    description: "Nurturing the soul through value-based education, moral instruction, and community service initiatives.",
+    icon: <Heart className="w-8 h-8 text-white" />,
+    color: "bg-red-700"
   },
   {
-    title: "Modern Labs",
-    description: "State-of-the-art Science, Math, and Computer laboratories for hands-on learning.",
-    icon: <Globe className="w-8 h-8 text-blue-800" />,
+    title: "Technological Edge",
+    description: "Equipping students with future-ready skills through smart classrooms and advanced computing laboratories.",
+    icon: <Lightbulb className="w-8 h-8 text-white" />,
+    color: "bg-yellow-600"
   },
   {
-    title: "Sports & Arts",
-    description: "Extensive programs in athletics, music, dance, and fine arts for every student.",
-    icon: <Trophy className="w-8 h-8 text-blue-800" />,
+    title: "Athletic Excellence",
+    description: "Developing teamwork and physical resilience through comprehensive sports coaching and state-of-the-art facilities.",
+    icon: <Trophy className="w-8 h-8 text-white" />,
+    color: "bg-emerald-700"
   },
 ];

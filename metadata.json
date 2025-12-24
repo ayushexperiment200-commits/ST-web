@@ -1,6 +1,10 @@
 {
-  "name": "Copy of St. Joseph's Mahoba - Premium School Portal",
-  "description": "A high-end, professionally designed web portal for St. Joseph's English Medium Senior Secondary School, Mahoba. Featuring a modern UI/UX, responsive layouts, and interactive components.",
+  "name": "St. Joseph's School Mahoba - Official Portal",
+  "short_name": "SJS Mahoba",
+  "description": "Premium educational web portal for St. Joseph's English Medium Senior Secondary School, Mahoba. Affiliated to CBSE New Delhi.",
+  "theme_color": "#002147",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
   "requestFramePermissions": [
     "geolocation"
   ]

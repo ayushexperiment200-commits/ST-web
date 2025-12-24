@@ -2,137 +2,169 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { FEATURES, SCHOOL_INFO } from '../constants';
-import { BookOpen, Award, CheckCircle2, TrendingUp, Calendar, ChevronRight } from 'lucide-react';
+import { BookOpen, Award, CheckCircle2, TrendingUp, Calendar, ChevronRight, Quote, ShieldCheck } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
-    <main>
+    <main className="bg-white">
       <Hero />
 
-      {/* Stats Section */}
-      <section className="relative -mt-16 z-20 px-4">
-        <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="text-center">
-            <div className="text-4xl font-serif font-bold text-blue-900 mb-2">1500+</div>
-            <div className="text-slate-500 font-medium">Students</div>
-          </div>
-          <div className="text-center border-l border-slate-100">
-            <div className="text-4xl font-serif font-bold text-blue-900 mb-2">85+</div>
-            <div className="text-slate-500 font-medium">Expert Teachers</div>
-          </div>
-          <div className="text-center border-l border-slate-100">
-            <div className="text-4xl font-serif font-bold text-blue-900 mb-2">25+</div>
-            <div className="text-slate-500 font-medium">Acres Campus</div>
-          </div>
-          <div className="text-center border-l border-slate-100">
-            <div className="text-4xl font-serif font-bold text-blue-900 mb-2">100%</div>
-            <div className="text-slate-500 font-medium">CBSE Results</div>
-          </div>
+      {/* Stats Section - Float over Hero */}
+      <section className="relative -mt-20 z-30 px-4 max-w-7xl mx-auto">
+        <div className="bg-white rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] p-8 md:p-16 grid grid-cols-2 lg:grid-cols-4 gap-12 border border-slate-100">
+          {[
+            { label: 'Enrolled Students', value: '1800+', sub: 'K-12 Education' },
+            { label: 'Certified Faculty', value: '92', sub: 'Highly Experienced' },
+            { label: 'Campus Size', value: '25', sub: 'Acres of Greenery' },
+            { label: 'Laboratories', value: '12', sub: 'High-Tech Equipments' },
+          ].map((stat, i) => (
+            <div key={i} className={`text-center ${i !== 0 ? 'lg:border-l border-slate-100' : ''}`}>
+              <div className="text-4xl md:text-5xl font-serif font-black text-blue-950 mb-2">{stat.value}</div>
+              <div className="text-slate-900 font-bold text-sm tracking-wide uppercase mb-1">{stat.label}</div>
+              <div className="text-slate-400 text-xs">{stat.sub}</div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-slate-50">
+      {/* The Pillars of St. Joseph's */}
+      <section className="py-32 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-blue-900 text-sm font-bold uppercase tracking-[0.2em] mb-4">Our Commitment</h2>
-            <h3 className="text-4xl md:text-5xl font-serif font-bold text-slate-900">Education Beyond Boundaries</h3>
-            <div className="w-20 h-1 bg-yellow-500 mx-auto mt-6"></div>
+          <div className="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
+            <div className="max-w-2xl">
+              <span className="text-yellow-600 font-black text-sm uppercase tracking-[0.3em] mb-4 block">Our Commitment</span>
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-slate-950 leading-tight">
+                Empowering Excellence through <span className="italic text-blue-900 font-medium underline decoration-yellow-500/30 underline-offset-8">Holistic Learning</span>
+              </h2>
+            </div>
+            <p className="text-slate-500 text-lg max-w-md pb-2 border-b-2 border-yellow-500/20">
+              We don't just teach subjects; we nurture the citizens of tomorrow with moral clarity and academic prowess.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {FEATURES.map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 group">
-                <div className="mb-6 bg-blue-50 w-16 h-16 rounded-xl flex items-center justify-center group-hover:bg-blue-900 group-hover:text-white transition-colors">
+              <div key={idx} className="group relative bg-white p-10 rounded-[2.5rem] border border-slate-200/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                <div className={`mb-8 ${feature.color} w-20 h-20 rounded-3xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform`}>
                   {feature.icon}
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-4">{feature.title}</h4>
-                <p className="text-slate-600 leading-relaxed">
+                <h4 className="text-2xl font-bold text-slate-950 mb-4 font-serif">{feature.title}</h4>
+                <p className="text-slate-500 leading-relaxed mb-6">
                   {feature.description}
                 </p>
+                <div className="flex items-center text-blue-950 font-bold text-sm group-hover:gap-2 transition-all cursor-pointer">
+                  <span>Explore Program</span>
+                  <ChevronRight size={16} />
+                </div>
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-slate-50 rounded-full opacity-50"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* News & Notices */}
-      <section className="py-24 bg-white overflow-hidden">
+      {/* News & Board Section */}
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-blue-900 text-sm font-bold uppercase tracking-[0.2em] mb-4">Latest Updates</h2>
-              <h3 className="text-4xl font-serif font-bold text-slate-900 mb-8 leading-tight">What's Happening at <br />St. Joseph's</h3>
-              
-              <div className="space-y-6">
-                {[
-                  { date: 'Oct 25', title: 'Annual Inter-School Debate Winners', cat: 'Event' },
-                  { date: 'Oct 20', title: 'CBSE Secondary Exam Registration Starts', cat: 'Academic' },
-                  { date: 'Oct 15', title: 'Eco-Club Plantation Drive Successful', cat: 'News' }
-                ].map((notice, i) => (
-                  <div key={i} className="flex items-center space-x-6 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group">
-                    <div className="bg-blue-900 text-white p-3 rounded-lg text-center min-w-[70px]">
-                      <span className="block text-xs uppercase font-bold text-blue-200">{notice.date.split(' ')[0]}</span>
-                      <span className="block text-lg font-bold">{notice.date.split(' ')[1]}</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-blue-600 mb-1 block">{notice.cat}</span>
-                      <h4 className="text-lg font-bold text-slate-900 group-hover:text-blue-900 transition-colors">{notice.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <button className="mt-10 flex items-center space-x-2 text-blue-900 font-bold hover:translate-x-2 transition-transform">
-                <span>View All Notices</span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
+            {/* Notice Board */}
+            <div className="lg:col-span-5 bg-blue-950 rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-12 opacity-10">
+                 <ShieldCheck size={200} />
+               </div>
+               <div className="relative z-10">
+                 <h3 className="text-3xl font-serif font-bold mb-10 flex items-center gap-4">
+                   <Calendar className="text-yellow-500" />
+                   Notice Board
+                 </h3>
+                 <div className="space-y-8">
+                   {[
+                     { title: "Half-Yearly Examination Schedule 2024", date: "Nov 02", type: "Examination" },
+                     { title: "Inter-School Cultural Fest Registration", date: "Oct 28", type: "Events" },
+                     { title: "Parent-Teacher Meeting (Grades IX-XII)", date: "Oct 25", type: "Academic" },
+                     { title: "New Transport Routes - South Sector", date: "Oct 20", type: "Admin" }
+                   ].map((notice, i) => (
+                     <div key={i} className="group cursor-pointer border-b border-white/10 pb-6 hover:border-yellow-500/50 transition-colors">
+                       <div className="flex justify-between items-start mb-2">
+                         <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">{notice.type}</span>
+                         <span className="text-white/40 text-xs font-medium">{notice.date}</span>
+                       </div>
+                       <h4 className="text-lg font-medium group-hover:text-yellow-400 transition-colors leading-snug">
+                         {notice.title}
+                       </h4>
+                     </div>
+                   ))}
+                 </div>
+                 <button className="mt-12 w-full py-5 border border-white/20 rounded-2xl font-bold hover:bg-white/5 transition-colors uppercase tracking-widest text-sm">
+                   Archive & Downloads
+                 </button>
+               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-yellow-400 absolute inset-0 rounded-3xl rotate-3 scale-95 opacity-20"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1577891729319-f4871c6ec217?q=80&w=2069&auto=format&fit=crop" 
-                alt="Students in Library" 
-                className="relative z-10 rounded-3xl shadow-2xl w-full h-[500px] object-cover"
-              />
-              <div className="absolute -bottom-8 -left-8 bg-blue-900 text-white p-8 rounded-2xl shadow-2xl z-20 max-w-[200px]">
-                <BookOpen className="w-10 h-10 mb-4 text-yellow-400" />
-                <p className="font-serif italic">"Excellence is not an act, but a habit."</p>
+            {/* Featured Story */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <span className="text-blue-950 font-black text-sm uppercase tracking-[0.3em] mb-4">Inside the Campus</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-950 mb-8 leading-tight">
+                Where Tradition Meets <br /> <span className="text-yellow-600 italic font-medium">Modernity</span>
+              </h2>
+              <div className="aspect-video rounded-[3rem] overflow-hidden mb-10 shadow-2xl group relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1577891729319-f4871c6ec217?q=80&w=2069&auto=format&fit=crop" 
+                  alt="Students in Smart Lab" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex flex-col justify-end p-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <h4 className="text-white text-2xl font-serif font-bold mb-2">Empowering Innovation</h4>
+                  <p className="text-white/70">Our students participating in the Regional Robotics Championship.</p>
+                </div>
+              </div>
+              <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                St. Joseph’s is committed to staying ahead of the curve. Our state-of-the-art computer labs and smart classrooms provide students with the digital fluency required for the 21st century.
+              </p>
+              <div className="flex items-center gap-12">
+                <div>
+                  <div className="text-3xl font-serif font-bold text-blue-950">100+</div>
+                  <div className="text-slate-400 text-sm">Annual Awards</div>
+                </div>
+                <div className="h-10 w-px bg-slate-200"></div>
+                <div>
+                  <div className="text-3xl font-serif font-bold text-blue-950">50+</div>
+                  <div className="text-slate-400 text-sm">Co-Curricular Clubs</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Principal Section */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-             <div className="md:w-1/3">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-yellow-500 rounded-3xl rotate-6"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1544717297-fa154daaf02e?q=80&w=2070&auto=format&fit=crop" 
-                    className="relative z-10 rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full aspect-[3/4] object-cover" 
-                    alt="Principal"
-                  />
-                </div>
-             </div>
-             <div className="md:w-2/3">
-                <h2 className="text-yellow-400 font-bold uppercase tracking-widest mb-4">Leadership Voice</h2>
-                <h3 className="text-4xl md:text-5xl font-serif font-bold mb-8 italic">"We prepare children for life, not just for exams."</h3>
-                <p className="text-lg text-slate-300 leading-relaxed mb-8">
-                  As the Principal of St. Joseph's English Medium Senior Secondary School, it is my privilege to lead an institution that is deeply rooted in values and committed to educational excellence. Our mission is to foster an environment where every child feels safe, respected, and inspired to reach their full potential.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-1 bg-yellow-500"></div>
-                  <div>
-                    <h5 className="text-xl font-bold">Rev. Fr. Principal</h5>
-                    <p className="text-slate-400">Principal, St. Joseph's Mahoba</p>
-                  </div>
-                </div>
-             </div>
+      {/* Leadership Quote */}
+      <section className="py-32 bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+          <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[100%] rounded-full bg-blue-500 blur-[150px]"></div>
+          <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[100%] rounded-full bg-yellow-500 blur-[150px]"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <Quote size={80} className="text-yellow-500/20 mb-10" />
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-12 italic leading-tight max-w-4xl">
+              "Education is not the filling of a pail, but the lighting of a fire."
+            </h2>
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 rounded-full border-2 border-yellow-500 p-1 mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1544717297-fa154daaf02e?q=80&w=2070&auto=format&fit=crop" 
+                  className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all cursor-pointer" 
+                  alt="Principal"
+                />
+              </div>
+              <h5 className="text-2xl font-serif font-bold text-white mb-2">Rev. Fr. Principal</h5>
+              <p className="text-yellow-500 font-bold text-sm uppercase tracking-widest">Leadership & Vision</p>
+              <button className="mt-10 px-10 py-4 bg-white/10 hover:bg-white text-white hover:text-blue-950 font-bold rounded-full border border-white/20 transition-all">
+                Read Principal's Message
+              </button>
+            </div>
           </div>
         </div>
       </section>
